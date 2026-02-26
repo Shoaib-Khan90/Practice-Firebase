@@ -41,7 +41,8 @@
   onAuthStateChanged(auth, (user) => {
   if (user) {
 
-    text.innerText = ""
+    text.innerText = "Your Successfully sign up your account"
+
   } else {
    
   }
