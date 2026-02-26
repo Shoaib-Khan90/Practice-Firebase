@@ -8,7 +8,9 @@
 
  
  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
- import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
+ import { getAuth, createUserWithEmailAndPassword
+  , onAuthStateChanged , signInWithEmailAndPassword , signOut 
+  } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyBIBVVl1-qah5qPAns6ULaO8QmjfcnugiA",
@@ -28,11 +30,22 @@
   console.log(auth)
 
   //for email
-//   let text = document.getElementById("text")
+  let text = document.getElementById("text")
 
   //Sign Up
 
   let Signupbtn = document.getElementById("Signupbtn")
+
+  //On Reload data
+
+  onAuthStateChanged(auth, (user) => {
+  if (user) {
+
+    text.innerText = ""
+  } else {
+   
+  }
+});
 
   //action
   Signupbtn.addEventListener("click",Signup)
@@ -47,7 +60,7 @@
     const user = userCredential.user;
 
     //for email show on page
-    // text.innerText = user.email
+    text.innerText = ""
     
   })
   .catch((error) => {
@@ -55,6 +68,56 @@
     const errorMessage = error.message;
     
   });
+  }
+
+  //login page
+  let LoginButton = document.getElementById("Loginbtn")
+  
+  LoginButton.addEventListener("click",Login)
+  
+    function Login(){
+     let LoginEmail = document.getElementById("LEmail").value
+     let LoginPassword = document.getElementById("LPassword").value
+
+      signInWithEmailAndPassword(auth, LoginEmail, LoginPassword)
+  .then((userCredential) => {
+   
+    const user = userCredential.user;
+
+    //for email show on page
+    
+    text.innerText = "Your account was Successfully Login"
+    text.style.color = "green"
+    
+    
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    text.innerText = errorCode
+    text.style.color = "red"
+    
+  });
+  }
+
+
+  //Logout
+
+  let LogoutButton = document.getElementById("logout")
+
+  LogoutButton.addEventListener("click",logout)
+
+  function logout(){
+                    
+  signOut(auth)
+
+  .then(() => {
+         
+          text.innerText = "Your account was Successfully Logout"
+  })
+  .catch((error) => {
+      console.log(error)
+});
   }
 
 
