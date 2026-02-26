@@ -114,6 +114,7 @@
   .then(() => {
          
           text.innerText = "Your account was Successfully Logout"
+          text.style.color = "gray"
   })
   .catch((error) => {
       console.log(error)
