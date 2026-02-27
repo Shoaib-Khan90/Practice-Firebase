@@ -41,10 +41,11 @@
   onAuthStateChanged(auth, (user) => {
   if (user) {
 
-    text.innerText = "Your Successfully sign up your account"
+    Email.value=""
+    Password.value=""
 
   } else {
-   
+
   }
 });
 
@@ -52,8 +53,8 @@
   Signupbtn.addEventListener("click",Signup)
 
   function Signup(){
-     let Email = document.getElementById("Email").value
-     let Password = document.getElementById("Password").value
+     let Email = document.getElementById("Email").value 
+     let Password = document.getElementById("Password").value 
 
       createUserWithEmailAndPassword(auth, Email, Password)
   .then((userCredential) => {
@@ -61,7 +62,8 @@
     const user = userCredential.user;
 
     //for email show on page
-    text.innerText = ""
+    text.innerText = "Your account was successfully sign up" 
+    text.style.color = "pink"
     
   })
   .catch((error) => {
@@ -73,11 +75,11 @@
 
   //login page
   let LoginButton = document.getElementById("Loginbtn")
-  
+
   LoginButton.addEventListener("click",Login)
   
     function Login(){
-     let LoginEmail = document.getElementById("LEmail").value
+     let LoginEmail = document.getElementById("LEmail").value 
      let LoginPassword = document.getElementById("LPassword").value
 
       signInWithEmailAndPassword(auth, LoginEmail, LoginPassword)
