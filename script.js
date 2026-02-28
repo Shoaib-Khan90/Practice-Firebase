@@ -5,22 +5,17 @@
 //  import dotenv from "dotenv"
 //  dotenv.config();
 
+//Import
 
- 
- import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
- import { getAuth, createUserWithEmailAndPassword
-  , onAuthStateChanged , signInWithEmailAndPassword , signOut 
-  } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBIBVVl1-qah5qPAns6ULaO8QmjfcnugiA",
-    authDomain: "ecommerce-7f1e2.firebaseapp.com",
-    projectId: "ecommerce-7f1e2",
-    storageBucket: "ecommerce-7f1e2.firebasestorage.app",
-    messagingSenderId: "1090647740235",
-    appId: "1:1090647740235:web:97a023e4b6638f1c7022ce",
-    measurementId: "G-JE0WY3T385"
-  };
+ import{
+    firebaseConfig,
+    initializeApp,
+    getAuth, 
+    createUserWithEmailAndPassword,
+   onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signOut 
+  } from './Firebase.js'
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
@@ -43,6 +38,8 @@
 
     Email.value=""
     Password.value=""
+    LPassword.value=""
+    LEmail.value = ""
 
   } else {
 
@@ -79,10 +76,11 @@
   LoginButton.addEventListener("click",Login)
   
     function Login(){
-     let LoginEmail = document.getElementById("LEmail").value 
-     let LoginPassword = document.getElementById("LPassword").value
+     let LEmail = document.getElementById("LEmail").value
+     let LPassword = document.getElementById("LPassword").value
 
-      signInWithEmailAndPassword(auth, LoginEmail, LoginPassword)
+
+      signInWithEmailAndPassword(auth, LEmail, LPassword)
   .then((userCredential) => {
    
     const user = userCredential.user;
@@ -124,6 +122,35 @@
 });
   }
 
+  //Hide And Show 
+
+  let HideAndShow = document.getElementById("show")
+
+  HideAndShow.addEventListener("click",function(){
+
+    if(Password.type === "password"){
+      Password.type = "text";
+      HideAndShow.innerText = "";
+    }
+    else{
+      Password.type = "password";
+      HideAndShow.innerText = "";
+    }
+    })
+
+     let Hide = document.getElementById("hide");
+
+    Hide.addEventListener("click",function(){
+
+    if(LPassword.type === "password"){
+      LPassword.type = "text";
+      Hide.innerText = "";
+    }
+    else{
+      LPassword.type = "password";
+      Hide.innerText = "";
+    }
+    })
 
 
 
