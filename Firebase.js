@@ -3,7 +3,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebas
     createUserWithEmailAndPassword,
    onAuthStateChanged,
     signInWithEmailAndPassword,
-    signOut 
+    signOut,
+    GoogleAuthProvider,
+    signInWithPopup 
   } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-auth.js";
 
   const firebaseConfig = {
@@ -23,5 +25,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebas
     createUserWithEmailAndPassword,
    onAuthStateChanged,
     signInWithEmailAndPassword,
-    signOut 
+    signOut,
+    GoogleAuthProvider,
+    signInWithPopup
   }

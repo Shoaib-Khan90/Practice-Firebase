@@ -14,7 +14,9 @@
     createUserWithEmailAndPassword,
    onAuthStateChanged,
     signInWithEmailAndPassword,
-    signOut 
+    signOut,
+    GoogleAuthProvider, 
+    signInWithPopup
   } from './Firebase.js'
 
   // Initialize Firebase
@@ -151,6 +153,33 @@
       Hide.innerText = "";
     }
     })
+
+    //Google Continue 
+
+    const provider = new GoogleAuthProvider();
+    let Google = document.getElementById("googlebtn");
+
+    Google.addEventListener("click",google)
+
+    function google(){
+
+      signInWithPopup(auth, provider)
+  .then((result) => {
+
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+    
+  }).catch((error) => {
+   
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.customData.email;
+    const credential = GoogleAuthProvider.credentialFromError(error);
+
+  });
+
+    }
 
 
 

@@ -1,4 +1,103 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
 .fa-regular{
         margin-left: -23px;
         text-align: center;
 }
+
+#div{
+    padding: 10px;
+    border: 5px solid transparent;
+    width: 820px;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    outline: none;
+    background:
+     linear-gradient(rgb(83, 199, 145), rgb(245, 213, 31)) padding-box,
+      conic-gradient(rgb(78, 74, 33), rgb(228, 108, 128), rgb(56, 143, 231), rgb(138, 20, 95)) border-box;
+    animation: rotateBorder 3s linear infinite;
+}
+
+#main{
+    margin-top: 40px;
+    padding: 20px;
+}
+
+#main>h1{
+        text-align: center;
+        font-size: 50px;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight:600;
+        color: brown;
+        text-shadow: 0px 4px ;
+}
+
+h2{
+        margin-top: 20px;
+        color: blue;
+        font-size: 30px;
+        font-weight: 300;
+        font-family:'Times New Roman', Times, serif;
+        text-shadow: 0px 3px 4px ;
+}
+
+input{
+        margin-top: 20px;
+        width: 300px;
+        padding: 5px;
+        border-radius: 10px;
+        border: 2px solid transparent;
+        outline: none;
+         background: 
+      linear-gradient(rgb(83, 199, 145), white) padding-box,
+      conic-gradient(rgb(203, 183, 5), rgb(151, 31, 51), rgb(35, 192, 15), rgb(190, 10, 82)) border-box;
+    animation: rotateBorder 3s linear infinite;
+}
+
+@keyframes rotateBorder {
+    0% {
+        background: 
+          linear-gradient(white, white) padding-box,
+          conic-gradient(from 0deg, rgb(204, 218, 16), rgb(201, 13, 44), rgb(10, 187, 78), rgb(212, 13, 86)) border-box;
+    }
+    100% {
+        background: 
+          linear-gradient(white, white) padding-box,
+          conic-gradient(from 360deg, rgb(59, 141, 141), rgb(59, 64, 205), rgb(127, 127, 62), rgb(26, 101, 101)) border-box;
+    }
+}
+
+button{
+        width: 100px;
+        padding: 5px;
+        border-radius: 10px;
+        margin-left:12px;
+        background-color: aliceblue;
+        border: 2px solid transparent;
+        outline: none;
+         background: 
+      linear-gradient(rgb(83, 199, 145), white) padding-box,
+      conic-gradient(rgb(203, 183, 5), rgb(151, 31, 51), rgb(35, 192, 15), rgb(190, 10, 82)) border-box;
+    animation: rotateBorder 3s linear infinite;
+}
+
+#body{
+         margin-top: 5px;
+    padding: 20px;
+}
+
+#body>h2{
+        color: blue;
+        font-size: 30px;
+        font-weight: 300;
+        font-family:'Times New Roman', Times, serif;
+        text-shadow: 0px 3px 4px ;
+}
+
