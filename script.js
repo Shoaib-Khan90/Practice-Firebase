@@ -40,8 +40,8 @@
 
     Email.value=""
     Password.value=""
-    LPassword.value=""
     LEmail.value = ""
+    LPassword.value=""
 
   } else {
 
